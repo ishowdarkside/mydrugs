@@ -1,0 +1,14 @@
+{
+  "name": "mydrugs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass ./frontend/scss/main.scss  ./public/style.css -w"
+  },
+  "author": "Ajdin Omerovic",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^8.0.0"
+  }
+}

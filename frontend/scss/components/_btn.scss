@@ -1,0 +1,20 @@
+.btn {
+  padding: 1.2rem 2.9rem;
+  border-radius: 100px;
+  font-family: $mont;
+  font-weight: 600;
+  outline: none;
+  color: #313131;
+  font-size: 1.8rem;
+  cursor: pointer;
+  border: none;
+  &--white {
+    background-color: white;
+    border: 1px solid #313131;
+  }
+
+  &--black {
+    background-color: #313131;
+    color: #ffff;
+  }
+}
