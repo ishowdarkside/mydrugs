@@ -53,6 +53,273 @@
       <div class="section__products__filter-bar">
         <button id="closeBar"><img src="../public/x.svg" /></button>
         <h2 class="heading-primary">Filter Products</h2>
+        <form>
+          <h2 class="heading-primary">Category</h2>
+          <div class="input-wrapper">
+            <input type="checkbox" value="sedatives" name="sedatives" />
+            <label for="sedatives">Sedatives</label>
+          </div>
+          <div class="input-wrapper">
+            <input type="checkbox" value="stimulants" name="stimulants" />
+            <label for="sedatives">Stimulants</label>
+          </div>
+          <div class="input-wrapper">
+            <input type="checkbox" value="hg" name="hg" />
+            <label for="sedatives">Hallucinogenics</label>
+          </div>
+
+          <h2 class="heading-primary">Price</h2>
+          <div class="input-wrapper">
+            <input type="checkbox" value="htl" name="htl" />
+            <label for="htl">High to Low</label>
+          </div>
+
+          <div class="input-wrapper">
+            <input type="checkbox" value="lth" name="lth" />
+            <label for="lth">Low to High</label>
+          </div>
+
+          <h2 class="heading-primary">Shipping Location</h2>
+          <div class="input-wrapper">
+            <input type="checkbox" value="columbia" name="columbia" />
+            <label for="columbia">Columbia</label>
+          </div>
+          <div class="input-wrapper">
+            <input type="checkbox" value="germany" name="germany" />
+            <label for="germany">Germany</label>
+          </div>
+          <div class="input-wrapper">
+            <input type="checkbox" value="austria" name="austria" />
+            <label for="austria">Austria</label>
+          </div>
+          <h2 class="heading-primary">Rating</h2>
+          <div class="input-wrapper">
+            <input type="checkbox" value="highRating" name="highRating" />
+            <label for="highRating">highest</label>
+          </div>
+          <div class="input-wrapper">
+            <input type="checkbox" value="lowRating" name="lowRating" />
+            <label for="lowRating">Lowest</label>
+          </div>
+          <h2 class="heading-primary">Shipping</h2>
+          <div class="input-wrapper">
+            <input type="checkbox" value="shipToday" name="shipToday" />
+            <label for="shipToday">Same Day</label>
+          </div>
+          <div class="input-wrapper">
+            <input type="checkbox" value="shipTomorrow" name="shipTomorrow" />
+            <label for="shipTomorrow">Next Day</label>
+          </div>
+          <button id="submitFilter">Refresh Results</button>
+        </form>
+      </div>
+      <button id="openBar">
+        <img src="../public/list.svg" alt="menu img" />
+      </button>
+      <div class="container container--1">
+        <h2 class="heading-primary">Explore Products</h2>
+        <span class="section__products__filler"
+          >Here at MyDrugs, we value quality over quantity</span
+        >
+      </div>
+
+      <div class="container mt-huge">
+        <ul class="container-filters">
+          <li>All Products</li>
+          <li>Best Sellers</li>
+          <li>Your Latest Purchases</li>
+          <li>Recommended By Others</li>
+        </ul>
+
+        <div class="section__products__wrapper">
+          <div class="section__products__product-wrapper">
+            <img src="../public/painkiller.jpg" />
+            <div class="section__products__product-wrapper__rating-wrapper">
+              <img src="../public/star-fill.svg" />
+              <span>4.9</span>
+            </div>
+            <div class="section__products__product-wrapper__desc">
+              <span class="title">Pink MDMA</span>
+              <span class="desc"
+                >Lorem ipsum dolor sit amet! <a href="#">Read More</a></span
+              >
+              <span class="price">0.0071BTC</span>
+              <button id="buyDrug">BUY</button>
+            </div>
+          </div>
+          <div class="section__products__product-wrapper">
+            <img src="../public/crack.jpg" />
+            <div class="section__products__product-wrapper__rating-wrapper">
+              <img src="../public/star-fill.svg" />
+              <span>3.7</span>
+            </div>
+            <div class="section__products__product-wrapper__desc">
+              <span class="title">Crack</span>
+              <span class="desc"
+                >Lorem ipsum dolor sit amet! <a href="#">Read More</a></span
+              >
+              <span class="price">0.0211BTC</span>
+              <button id="buyDrug">BUY</button>
+            </div>
+          </div>
+          <div class="section__products__product-wrapper">
+            <img src="../public/crystal-meth.jpg" />
+            <div class="section__products__product-wrapper__rating-wrapper">
+              <img src="../public/star-fill.svg" />
+              <span>5.0</span>
+            </div>
+            <div class="section__products__product-wrapper__desc">
+              <span class="title">Cyrstal Meth</span>
+              <span class="desc"
+                >Lorem ipsum dolor sit amet! <a href="#">Read More</a></span
+              >
+              <span class="price">0.0091BTC</span>
+              <button id="buyDrug">BUY</button>
+            </div>
+          </div>
+          <div class="section__products__product-wrapper">
+            <img src="../public/fancy-mdma.jpg" />
+            <div class="section__products__product-wrapper__rating-wrapper">
+              <img src="../public/star-fill.svg" />
+              <span>2.1</span>
+            </div>
+            <div class="section__products__product-wrapper__desc">
+              <span class="title">Fancy MDMA</span>
+              <span class="desc"
+                >Lorem ipsum dolor sit amet! <a href="#">Read More</a></span
+              >
+              <span class="price">0.0021BTC</span>
+              <button id="buyDrug">BUY</button>
+            </div>
+          </div>
+          <div class="section__products__product-wrapper">
+            <img src="../public/green mdma.jpg" />
+            <div class="section__products__product-wrapper__rating-wrapper">
+              <img src="../public/star-fill.svg" />
+              <span>3.8</span>
+            </div>
+            <div class="section__products__product-wrapper__desc">
+              <span class="title">Green MDMA</span>
+              <span class="desc"
+                >Lorem ipsum dolor sit amet! <a href="#">Read More</a></span
+              >
+              <span class="price">0.0041BTC</span>
+              <button id="buyDrug">BUY</button>
+            </div>
+          </div>
+          <div class="section__products__product-wrapper">
+            <img src="../public/green-2.jpg" />
+            <div class="section__products__product-wrapper__rating-wrapper">
+              <img src="../public/star-fill.svg" />
+              <span>4.4</span>
+            </div>
+            <div class="section__products__product-wrapper__desc">
+              <span class="title">Weedy MDMA</span>
+              <span class="desc"
+                >Lorem ipsum dolor sit amet! <a href="#">Read More</a></span
+              >
+              <span class="price">0.00721BTC</span>
+              <button id="buyDrug">BUY</button>
+            </div>
+          </div>
+          <div class="section__products__product-wrapper">
+            <img src="../public/painkiller.jpg" />
+            <div class="section__products__product-wrapper__rating-wrapper">
+              <img src="../public/star-fill.svg" />
+              <span>4.9</span>
+            </div>
+            <div class="section__products__product-wrapper__desc">
+              <span class="title">Pink MDMA</span>
+              <span class="desc"
+                >Lorem ipsum dolor sit amet! <a href="#">Read More</a></span
+              >
+              <span class="price">0.0071BTC</span>
+              <button id="buyDrug">BUY</button>
+            </div>
+          </div>
+          <div class="section__products__product-wrapper">
+            <img src="../public/green-pills.jpg" />
+            <div class="section__products__product-wrapper__rating-wrapper">
+              <img src="../public/star-fill.svg" />
+              <span>1.5</span>
+            </div>
+            <div class="section__products__product-wrapper__desc">
+              <span class="title">Green Pill</span>
+              <span class="desc"
+                >Lorem ipsum dolor sit amet! <a href="#">Read More</a></span
+              >
+              <span class="price">0.0015BTC</span>
+              <button id="buyDrug">BUY</button>
+            </div>
+          </div>
+          <div class="section__products__product-wrapper">
+            <img src="../public/morphine.jpg" />
+            <div class="section__products__product-wrapper__rating-wrapper">
+              <img src="../public/star-fill.svg" />
+              <span>4.9</span>
+            </div>
+            <div class="section__products__product-wrapper__desc">
+              <span class="title">Morphine</span>
+              <span class="desc"
+                >Lorem ipsum dolor sit amet! <a href="#">Read More</a></span
+              >
+              <span class="price">0.0071BTC</span>
+              <button id="buyDrug">BUY</button>
+            </div>
+          </div>
+          <div class="section__products__product-wrapper">
+            <img src="../public/purple-mdma.jpg" />
+            <div class="section__products__product-wrapper__rating-wrapper">
+              <img src="../public/star-fill.svg" />
+              <span>5.0</span>
+            </div>
+            <div class="section__products__product-wrapper__desc">
+              <span class="title">Purple MDMA</span>
+              <span class="desc"
+                >Lorem ipsum dolor sit amet! <a href="#">Read More</a></span
+              >
+              <span class="price">0.0121BTC</span>
+              <button id="buyDrug">BUY</button>
+            </div>
+          </div>
+          <div class="section__products__product-wrapper">
+            <img src="../public/random-pill.jpg" />
+            <div class="section__products__product-wrapper__rating-wrapper">
+              <img src="../public/star-fill.svg" />
+              <span>4.9</span>
+            </div>
+            <div class="section__products__product-wrapper__desc">
+              <span class="title">Random Pill</span>
+              <span class="desc"
+                >Lorem ipsum dolor sit amet! <a href="#">Read More</a></span
+              >
+              <span class="price">0.0071BTC</span>
+              <button id="buyDrug">BUY</button>
+            </div>
+          </div>
+          <div class="section__products__product-wrapper">
+            <img src="../public/red-mdma.jpg" />
+            <div class="section__products__product-wrapper__rating-wrapper">
+              <img src="../public/star-fill.svg" />
+              <span>4.9</span>
+            </div>
+            <div class="section__products__product-wrapper__desc">
+              <span class="title">Red MDMA</span>
+              <span class="desc"
+                >Lorem ipsum dolor sit amet! <a href="#">Read More</a></span
+              >
+              <span class="price">0.0071BTC</span>
+              <button id="buyDrug">BUY</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pagination-wrapper">
+          <button class="page">1</button>
+          <button class="page">2</button>
+          <button class="page">3</button>
+          <button class="page">4</button>
+        </div>
       </div>
     </section>
   </body>

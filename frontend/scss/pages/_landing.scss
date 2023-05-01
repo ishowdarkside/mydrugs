@@ -81,3 +81,184 @@
     gap: 3rem;
   }
 }
+
+//section products
+
+.section__products {
+  min-height: 100vh;
+  padding: 20rem 0;
+  min-height: 100dvh;
+  position: relative;
+  &__filter-bar {
+    top: 0;
+    left: 0;
+    z-index: 999;
+    font-weight: 400;
+    height: 100%;
+    background-color: #313131;
+    width: 20rem;
+    position: fixed;
+
+    padding: 2rem;
+    color: #ffff;
+    #closeBar {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      position: absolute;
+      right: 5px;
+      top: 1rem;
+      cursor: pointer;
+    }
+
+    .heading-primary {
+      font-size: 1.6rem;
+
+      margin-top: 6rem;
+    }
+
+    #submitFilter {
+      margin-top: 2rem;
+      border: none;
+      outline: none;
+      padding: 1rem 2rem;
+      background-color: #fff;
+      color: #313131;
+      cursor: pointer;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+
+    gap: 2rem;
+  }
+
+  #openBar {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: sticky;
+    position: -webkit-sticky;
+    left: 8rem;
+    top: 30rem;
+    cursor: pointer;
+  }
+
+  .container--1 {
+    text-align: center;
+  }
+
+  .container-filters {
+    list-style: none;
+    font-family: $mont;
+    display: flex;
+    border-bottom: 1px solid rgba(#313131, 0.2);
+    margin-bottom: 2rem;
+
+    li {
+      cursor: pointer;
+      padding: 2rem;
+
+      &:first-of-type {
+        background-color: #313131;
+        color: #fff;
+      }
+    }
+  }
+
+  &__product-wrapper {
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__rating-wrapper {
+      width: 6.5rem;
+      height: 2.5rem;
+      border-radius: 100px;
+      background-color: #313131;
+      color: #ffff;
+      gap: 0.3rem;
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    &__desc {
+      width: 100%;
+      background-color: #313131;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: #fff;
+      padding: 1rem;
+      row-gap: 1rem;
+      display: grid;
+      grid-template-columns: 1fr max-content;
+      grid-template-rows: max-content 1fr;
+    }
+
+    .desc {
+      grid-column: 1 / span 1;
+      grid-row: 2 / span 1;
+      font-size: 1.5rem;
+      font-weight: 400;
+      a {
+        color: #fff;
+      }
+    }
+
+    #buyDrug {
+      border: none;
+      outline: none;
+      background-color: #fff;
+      border-radius: 100px;
+      align-self: center;
+      justify-self: end;
+      padding: 1rem 2rem;
+    }
+    .price {
+      font-size: 1.5rem;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.pagination-wrapper {
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  align-self: center;
+  display: flex;
+  gap: 1.5rem;
+
+  button {
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    font-size: 1.8rem;
+    background-color: #313131;
+    border: none;
+    outline: none;
+    color: #fff;
+
+    font-family: $mont;
+  }
+}
