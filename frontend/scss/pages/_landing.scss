@@ -3,6 +3,7 @@
   background-size: cover;
   background-position: center;
   height: 100vh;
+  position: relative;
   height: 100dvh;
   @include responsive-custom(31.25em) {
     h1 {
@@ -38,7 +39,8 @@
 
   &__overlay {
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    height: 100dvh;
     top: 0;
 
     position: absolute;
