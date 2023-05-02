@@ -149,6 +149,7 @@ body {
   .hero__section__overlay {
     width: 100%;
     height: 100%;
+    top: 0;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5); }
   .hero__section .btn {
