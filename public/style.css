@@ -110,6 +110,9 @@ body {
       display: flex;
       list-style: none;
       gap: 2rem; }
+      @media only screen and (max-width: 37.5em) {
+        .navbar .container ul {
+          display: none; } }
       .navbar .container ul li a {
         text-decoration: none;
         color: #ffff; }
@@ -245,8 +248,14 @@ body {
       margin-bottom: 0.5rem; }
       .section__products__filter-bar .heading-primary:not(:first-of-type) {
         margin-top: 6rem; }
+        @media only screen and (max-width: 37.5em) {
+          .section__products__filter-bar .heading-primary:not(:first-of-type) {
+            margin-top: 4.5rem; } }
       .section__products__filter-bar .heading-primary:first-of-type {
         margin-top: 3rem; }
+        @media only screen and (max-width: 37.5em) {
+          .section__products__filter-bar .heading-primary:first-of-type {
+            margin-top: 2rem; } }
     .section__products__filter-bar #submitFilter {
       margin-top: 2rem;
       border: none;
