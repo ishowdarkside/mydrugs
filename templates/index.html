@@ -5,10 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyDrugs</title>
+    <script
+      src="../public/scripts/frontendScripts/controller.js"
+      type="module"
+      defer
+    ></script>
     <link rel="icon" type="image/x-icon" href="../public/favicon.svg" />
     <link rel="stylesheet" href="../public/style.css" />
   </head>
   <body>
+    <nav class="navbar">
+      <div class="container">
+        <h2 class="heading-primary">MyDrugs</h2>
+        <ul>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#" class="nav-register-cta">Register</a></li>
+        </ul>
+      </div>
+    </nav>
     <section class="hero__section">
       <div class="hero__section__overlay"></div>
       <div class="container">
@@ -125,7 +141,7 @@
 
       <div class="container mt-huge">
         <ul class="container-filters">
-          <li>All Products</li>
+          <li class="active">All Products</li>
           <li>Best Sellers</li>
           <li>Your Latest Purchases</li>
           <li>Recommended By Others</li>
@@ -322,5 +338,17 @@
         </div>
       </div>
     </section>
+    <footer class="footer">
+      <div class="container">
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Your Profile</a></li>
+          <li><a href="#">Previous Orders</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Wishlist</a></li>
+        </ul>
+        <h2>MyDrugs</h2>
+      </div>
+    </footer>
   </body>
 </html>

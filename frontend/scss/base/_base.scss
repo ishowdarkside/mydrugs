@@ -10,4 +10,13 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  @include responsive(tab-land) {
+    font-size: 56.25%;
+  }
+
+  @include responsive(mobile) {
+    font-size: 50%;
+  }
 }

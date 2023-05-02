@@ -1,6 +1,11 @@
 .container {
   max-width: 120rem;
   margin: 0 auto;
+
+  @include responsive("tab-land") {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
 }
 
 .mb-small {
@@ -25,4 +30,17 @@
 
 .mt-huge {
   margin-top: 8rem;
+}
+
+.hideBar {
+  transform: translateX(-20rem);
+}
+
+.showBar {
+  transform: translateX(20rem);
+}
+
+.active {
+  background-color: #313131;
+  color: #ffff;
 }

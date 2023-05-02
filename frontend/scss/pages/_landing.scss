@@ -4,7 +4,15 @@
   background-position: center;
   height: 100vh;
   height: 100dvh;
+  @include responsive-custom(31.25em) {
+    h1 {
+      font-size: 7rem;
+    }
 
+    &__filler {
+      font-size: 1rem;
+    }
+  }
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,10 +55,14 @@
 //About us Section
 
 .section__about {
+  position: relative;
   padding: 10rem 0;
 
   .heading-primary {
     margin-bottom: 2.3rem;
+    @include responsive("tab-port") {
+      text-align: center;
+    }
   }
 
   .btn {
@@ -61,24 +73,59 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    & > * {
+    @include responsive("tab-port") {
+      flex-direction: column;
     }
   }
 
   &__text {
     max-width: 55rem;
+    position: relative;
     text-align: justify;
+
+    @include responsive("tab-port") {
+      text-align: center;
+      color: #808080;
+    }
   }
 
+  &__left-wrapper {
+    color: #313131;
+    position: relative;
+    mix-blend-mode: screen;
+    z-index: 99;
+
+    .heading-primary {
+      @include responsive("tab-port") {
+        color: #808080;
+      }
+    }
+  }
   &__right-wrapper {
+    @include responsive("tab-port") {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
     img {
       clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+      @include responsive("tab-port") {
+        clip-path: polygon(54% 0, 100% 0%, 100% 100%, 0 100%);
+      }
+
+      @include responsive("mobile") {
+        clip-path: polygon(29% 0, 100% 0, 100% 100%, 63% 100%);
+      }
     }
   }
   &__btn-wrapper {
     margin-top: 4rem;
     display: flex;
     gap: 3rem;
+
+    @include responsive("tab-port") {
+      justify-content: center;
+    }
   }
 }
 
@@ -90,8 +137,10 @@
   min-height: 100dvh;
   position: relative;
   &__filter-bar {
+    transition: all 0.2s ease;
     top: 0;
-    left: 0;
+    left: -20rem;
+
     z-index: 999;
     font-weight: 400;
     height: 100%;
@@ -113,8 +162,15 @@
 
     .heading-primary {
       font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      &:not(:first-of-type) {
+        margin-top: 6rem;
+      }
 
-      margin-top: 6rem;
+      &:first-of-type {
+        margin-top: 3rem;
+      }
     }
 
     #submitFilter {
@@ -133,6 +189,8 @@
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 
     gap: 2rem;
+
+    // @include responsive-custom();
   }
 
   #openBar {
@@ -144,6 +202,11 @@
     left: 8rem;
     top: 30rem;
     cursor: pointer;
+
+    @include responsive-custom(31.25em) {
+      position: static;
+      margin-left: 5rem;
+    }
   }
 
   .container--1 {
@@ -157,14 +220,12 @@
     border-bottom: 1px solid rgba(#313131, 0.2);
     margin-bottom: 2rem;
 
+    @include responsive-custom(31.25em) {
+      flex-direction: column;
+    }
     li {
       cursor: pointer;
       padding: 2rem;
-
-      &:first-of-type {
-        background-color: #313131;
-        color: #fff;
-      }
     }
   }
 
@@ -207,7 +268,7 @@
       row-gap: 1rem;
       display: grid;
       grid-template-columns: 1fr max-content;
-      grid-template-rows: max-content 1fr;
+      grid-template-rows: 2rem 1fr;
     }
 
     .desc {
@@ -228,6 +289,7 @@
       align-self: center;
       justify-self: end;
       padding: 1rem 2rem;
+      cursor: pointer;
     }
     .price {
       font-size: 1.5rem;
