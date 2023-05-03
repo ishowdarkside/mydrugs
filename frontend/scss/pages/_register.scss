@@ -1,0 +1,78 @@
+.register-wrapper {
+  height: 100vh;
+  padding: 2rem;
+
+  h1 {
+    font-size: 10rem;
+    font-weight: 400;
+    font-family: $mont;
+
+    @include responsive("mobile") {
+      font-size: 6rem;
+
+      text-align: center;
+    }
+  }
+
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    form {
+      font-weight: 400;
+
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        &:not(:last-of-type) {
+          margin-bottom: 2rem;
+        }
+        input {
+          width: 35rem;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid #313131;
+          padding: 1rem 0;
+          transition: all 0.3s ease;
+          background-color: transparent;
+
+          &:focus {
+            padding: 1rem;
+          }
+        }
+
+        label {
+          font-weight: 600;
+          margin-bottom: 1rem;
+        }
+      }
+
+      a {
+        font-size: 1.5rem;
+
+        color: #313131;
+      }
+
+      .btn {
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+
+      .operations-wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+
+        align-self: stretch;
+      }
+    }
+  }
+}

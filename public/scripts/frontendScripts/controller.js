@@ -3,3 +3,4 @@ View.handleFilterBar();
 View.handleViewFilters();
 View.handleHeroScroll();
 View.handleNavBar();
+View.handleScrollToCatalog();

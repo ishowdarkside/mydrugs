@@ -48,6 +48,15 @@ class View {
     });
     observer.observe(hero);
   }
+
+  handleScrollToCatalog() {
+    document
+      .querySelector(".btn-scrollToCatalog")
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(".section__products").scrollIntoView();
+      });
+  }
 }
 
 export default new View();

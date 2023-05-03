@@ -42,8 +42,7 @@
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
-  font-family: inherit; }
+  box-sizing: inherit; }
 
 html {
   font-size: 62.5%;
@@ -123,7 +122,7 @@ body {
     border-radius: 100px; }
 
 .hero__section {
-  background-image: url("../../../public/bg-img.jpg");
+  background-image: url("/imgs/bg-img.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -374,6 +373,7 @@ body {
   padding: 1.2rem 2.9rem;
   border-radius: 100px;
   font-family: "Montserrat", sans-serif;
+  text-decoration: none;
   font-weight: 600;
   outline: none;
   color: #313131;
@@ -386,3 +386,56 @@ body {
   .btn--black {
     background-color: #313131;
     color: #ffff; }
+
+.register-wrapper {
+  height: 100vh;
+  padding: 2rem; }
+  .register-wrapper h1 {
+    font-size: 10rem;
+    font-weight: 400;
+    font-family: "Montserrat", sans-serif; }
+    @media only screen and (max-width: 37.5em) {
+      .register-wrapper h1 {
+        font-size: 6rem;
+        text-align: center; } }
+  .register-wrapper .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    .register-wrapper .container form {
+      font-weight: 400;
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; }
+      .register-wrapper .container form div {
+        display: flex;
+        flex-direction: column; }
+        .register-wrapper .container form div:not(:last-of-type) {
+          margin-bottom: 2rem; }
+        .register-wrapper .container form div input {
+          width: 35rem;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid #313131;
+          padding: 1rem 0;
+          transition: all 0.3s ease;
+          background-color: transparent; }
+          .register-wrapper .container form div input:focus {
+            padding: 1rem; }
+        .register-wrapper .container form div label {
+          font-weight: 600;
+          margin-bottom: 1rem; }
+      .register-wrapper .container form a {
+        font-size: 1.5rem;
+        color: #313131; }
+      .register-wrapper .container form .btn {
+        font-size: 1.5rem;
+        font-weight: 400; }
+      .register-wrapper .container form .operations-wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        align-self: stretch; }
