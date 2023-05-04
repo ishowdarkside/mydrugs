@@ -40,7 +40,6 @@ class View {
     const navbar = document.querySelector(".navbar");
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
-        console.log(entry);
         if (entry.isIntersecting) {
           navbar.style.display = "none";
         } else navbar.style.display = "flex";
