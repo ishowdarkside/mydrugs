@@ -1,0 +1,32 @@
+#alertWindow {
+  position: absolute;
+  width: 25rem;
+  height: 6rem;
+  transition: all 0.4s ease;
+
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  font-family: $mont;
+
+  color: #ffff;
+  transform: translateX(-50%) translateY(-6rem);
+}
+
+.alert-fail {
+  background-color: #96101d;
+}
+
+.alert-success {
+  background-color: #238723;
+}
+
+.alert-show {
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+.alert-hide {
+  transform: translateX(-50%) translateY(-6rem) !important;
+}

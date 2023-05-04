@@ -1,0 +1,23 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title MyDrugs | Login
+  link(rel='icon' type='image/x-icon' href='/imgs/favicon.svg')
+  link(rel='stylesheet' href='/style.css')
+  script(src='/scripts/loginScripts/controller.js' defer='' type='module')
+  .login-wrapper
+    h1 MyDrugs
+    .container 
+        h2 Login
+        form(id='loginForm')
+          div
+            label(for='email') Email
+            input(type='email' name='email' id='emailLogin' placeholder='example@domain.co')
+          div
+            label(for='password') Password
+            input(type='text' name='password' id='passwordLogin'  placeholder='********')
+          .operations-wrapper
+            button#submitRegister(class='btn btn--black') Login!
+            a(href='/register') Register

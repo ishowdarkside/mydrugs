@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const apiAuthRouter = require("./routes/apiAuthRouter");
 const ErrorMiddleware = require("./controllers/errorController");
 const cookieParser = require("cookie-parser");
+const viewController = require("./controllers/viewController");
 dotenv.config({ path: "./config.env" });
 const app = express();
 app.use(express.static("public"));
@@ -21,5 +22,8 @@ app.use("/", ViewRouter);
 app.use("/api/users", apiAuthRouter);
 
 //Error Handling Middleware
+
+//Handling unhandled routes
+app.use("*", viewController.renderError);
 app.use(ErrorMiddleware);
 module.exports = app;

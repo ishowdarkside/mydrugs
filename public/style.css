@@ -387,6 +387,32 @@ body {
     background-color: #313131;
     color: #ffff; }
 
+#alertWindow {
+  position: absolute;
+  width: 25rem;
+  height: 6rem;
+  transition: all 0.4s ease;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  font-family: "Montserrat", sans-serif;
+  color: #ffff;
+  transform: translateX(-50%) translateY(-6rem); }
+
+.alert-fail {
+  background-color: #96101d; }
+
+.alert-success {
+  background-color: #238723; }
+
+.alert-show {
+  transform: translateX(-50%) translateY(0) !important; }
+
+.alert-hide {
+  transform: translateX(-50%) translateY(-6rem) !important; }
+
 .register-wrapper {
   height: 100vh;
   padding: 2rem; }
@@ -398,6 +424,8 @@ body {
       .register-wrapper h1 {
         font-size: 6rem;
         text-align: center; } }
+  .register-wrapper h2 {
+    margin-bottom: 3rem; }
   .register-wrapper .container {
     position: absolute;
     top: 50%;
@@ -439,3 +467,66 @@ body {
         flex-direction: row;
         justify-content: space-between;
         align-self: stretch; }
+
+.login-wrapper {
+  height: 100vh;
+  padding: 2rem; }
+  .login-wrapper h1 {
+    font-size: 10rem;
+    font-weight: 400;
+    font-family: "Montserrat", sans-serif; }
+    @media only screen and (max-width: 37.5em) {
+      .login-wrapper h1 {
+        font-size: 6rem;
+        text-align: center; } }
+  .login-wrapper h2 {
+    margin-bottom: 3rem; }
+  .login-wrapper .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    .login-wrapper .container form {
+      font-weight: 400;
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; }
+      .login-wrapper .container form div {
+        display: flex;
+        flex-direction: column; }
+        .login-wrapper .container form div:not(:last-of-type) {
+          margin-bottom: 2rem; }
+        .login-wrapper .container form div input {
+          width: 35rem;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid #313131;
+          padding: 1rem 0;
+          transition: all 0.3s ease;
+          background-color: transparent; }
+          .login-wrapper .container form div input:focus {
+            padding: 1rem; }
+        .login-wrapper .container form div label {
+          font-weight: 600;
+          margin-bottom: 1rem; }
+      .login-wrapper .container form a {
+        font-size: 1.5rem;
+        color: #313131; }
+      .login-wrapper .container form .btn {
+        font-size: 1.5rem;
+        font-weight: 400; }
+      .login-wrapper .container form .operations-wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        align-self: stretch; }
+
+#errorLink {
+  text-decoration: none;
+  font-size: 10rem;
+  color: #313131; }
+  @media only screen and (max-width: 23.75em) {
+    #errorLink {
+      font-size: 4rem; } }

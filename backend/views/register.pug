@@ -10,7 +10,7 @@ head
   .register-wrapper
     h1 MyDrugs
     .container 
-      h2 Register
+        h2 Register
         form(id='registerForm')
           div
             label(for='name') Full Name
@@ -20,10 +20,11 @@ head
             input(type='email' name='email' id='emailRegister' placeholder='example@domain.co')
           div
             label(for='password') Password
-            input(type='text' name='password' id='passwordRegister'  placeholder='********')
+            input(type='password' minlength='8' maxlength='30' name='password' id='passwordRegister'  placeholder='********')
           div 
             label(for='passwordConfirm') Password Confirm
-            input(type='text' name='passwordConfirm' id='passConfirmRegister' placeholder='********')
+            input(type='password' minlength='8' name='passwordConfirm' id='passConfirmRegister' placeholder='********')
           .operations-wrapper
             button#submitRegister(class='btn btn--black') Register!
-            a(href='/login') Login 
+            a(href='/login') Login
+  #alertWindow

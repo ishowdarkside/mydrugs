@@ -1,12 +1,17 @@
-class View {
+import { alertWindow } from "../../alertWindow.js";
+class View extends alertWindow {
   #form = document.querySelector("#registerForm");
 
   handleRegister(handler) {
-    this.#form.addEventListener("submit", async function (e) {
+    this.#form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const formData = new FormData(this);
+      const formData = new FormData(this.#form);
       const data = await handler(formData);
       console.log(data);
+      if (data.status === "fail") return this.handleError(data.message);
+      else if (data.status === "success") {
+        this.handleSuccess(data.message);
+      }
     });
   }
 }

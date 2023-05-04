@@ -1,0 +1,9 @@
+#errorLink {
+  text-decoration: none;
+  font-size: 10rem;
+  color: #313131;
+
+  @include responsive-custom(23.75em) {
+    font-size: 4rem;
+  }
+}

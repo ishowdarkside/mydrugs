@@ -3,6 +3,7 @@ const bcrpyt = require("bcrypt");
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
+    required: [true, "Please provide your name!"],
     validate: [
       {
         validator: function (data) {
@@ -20,6 +21,7 @@ const UserSchema = new mongoose.Schema({
   },
   email: {
     type: String,
+    required: [true, "Please provide your email!"],
     unique: true,
     validate: {
       validator: function (data) {
@@ -29,12 +31,14 @@ const UserSchema = new mongoose.Schema({
     },
   },
   password: {
+    required: [true, "Please provide password!"],
     type: String,
     minlength: [8, "Password must at least be 8 characters"],
     maxlength: [30, "Password can be  max 30 characters"],
   },
   passwordConfirm: {
     type: String,
+    required: [true, "Please provide password confirm!"],
     validate: {
       validator: function (data) {
         return data === this.password;
@@ -45,6 +49,7 @@ const UserSchema = new mongoose.Schema({
 });
 
 UserSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
   this.password = await bcrpyt.hash(this.password, 12);
   this.passwordConfirm = undefined;
   next();

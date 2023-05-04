@@ -23,7 +23,7 @@ exports.signup = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: "success",
-    data: "User created successfully!",
+    message: "Registered successfully!",
   });
 });
 
@@ -42,6 +42,5 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.protect = (req, res, next) => {
   const token = req.cookies.jwt;
-  console.log(token);
   next();
 };

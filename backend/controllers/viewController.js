@@ -8,3 +8,13 @@ exports.renderRegister = (req, res) => {
   const file = path.join(__dirname, "..", "views", "register");
   res.render(file);
 };
+
+exports.renderLogin = (req, res) => {
+  const file = path.join(__dirname, "..", "views", "login");
+  res.render(file);
+};
+
+exports.renderError = (req, res) => {
+  const file = path.join(__dirname, "..", "views", "error");
+  res.render(file);
+};
