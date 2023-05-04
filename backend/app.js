@@ -5,11 +5,13 @@ const path = require("path");
 const morgan = require("morgan");
 const apiAuthRouter = require("./routes/apiAuthRouter");
 const ErrorMiddleware = require("./controllers/errorController");
+const cookieParser = require("cookie-parser");
 dotenv.config({ path: "./config.env" });
 const app = express();
 app.use(express.static("public"));
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(cookieParser());
 
 //Rendering Views
 app.set("view engine", "pug");
