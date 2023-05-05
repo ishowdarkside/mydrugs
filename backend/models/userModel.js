@@ -46,6 +46,17 @@ const UserSchema = new mongoose.Schema({
       message: "Passwords are not matching!",
     },
   },
+  confirmed: {
+    type: Boolean,
+    default: false,
+  },
+  confirmExpires: {
+    type: Date,
+    default: new Date(Date.now() + 10 * 60 * 1000),
+  },
+  confirmationToken: {
+    type: String,
+  },
 });
 
 UserSchema.pre("save", async function (next) {

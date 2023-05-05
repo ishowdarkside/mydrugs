@@ -7,8 +7,13 @@ const apiAuthRouter = require("./routes/apiAuthRouter");
 const ErrorMiddleware = require("./controllers/errorController");
 const cookieParser = require("cookie-parser");
 const viewController = require("./controllers/viewController");
+const User = require("./models/userModel");
 dotenv.config({ path: "./config.env" });
 const app = express();
+
+setInterval(async () => {
+  await User.deleteMany({ confirmExpires: { $lt: new Date() } });
+}, 600000);
 app.use(express.static("public"));
 app.use(morgan("dev"));
 app.use(express.json());

@@ -3,6 +3,8 @@ const errorMiddleware = (err, req, res, next) => {
     const status = err.status === "fail" ? 400 : 500;
     res.status(status).json({
       error: err,
+      errorName: err.name,
+      errorMessage: err.message,
     });
   } else if (process.env.NODE_ENV === "production") {
     const status = err.statusCode || 500;
