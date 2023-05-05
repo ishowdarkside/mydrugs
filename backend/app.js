@@ -12,7 +12,10 @@ dotenv.config({ path: "./config.env" });
 const app = express();
 
 setInterval(async () => {
-  await User.deleteMany({ confirmExpires: { $lt: new Date() } });
+  await User.deleteMany({
+    confirmExpires: { $lt: new Date() },
+    confirmed: false,
+  });
 }, 600000);
 app.use(express.static("public"));
 app.use(morgan("dev"));

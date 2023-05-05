@@ -8,9 +8,12 @@ class View extends alertWindow {
       const formData = new FormData(this.#form);
       const data = await handler(formData);
       console.log(data);
-      if (data.status === "fail") return this.handleError(data.message);
+      if (data.status !== "success") return this.handleError(data.message);
       else if (data.status === "success") {
         this.handleSuccess(data.message);
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 2000);
       }
     });
   }

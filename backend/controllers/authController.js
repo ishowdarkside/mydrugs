@@ -29,7 +29,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     .update(buffer)
     .digest("hex");
   //REMOVE 3000 in deployment process
-  const emailMessage = `To confirm your account visit: \n ${req.protocol}://${req.hostname}:3000/confirmAccount/${user.confirmationToken}`;
+  const emailMessage = `To confirm your account visit: \n ${req.protocol}://${req.hostname}:3000/confirmAccount/${user.confirmationToken} \n If you don't confirm your account in next 10 minutes,your data will be lost!`;
 
   await user.save({ validateBeforeSave: true });
   const message = await Emailer.sendConfirmation(user.email, emailMessage);
@@ -39,16 +39,28 @@ exports.signup = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.confirm = catchAsync(async (req, res, next) => {
+  const user = await User.findOne({
+    confirmationToken: req.params.confirmToken,
+  });
+  const errorFile = path.join(__dirname, "..", "views", "error");
+  if (!user) return res.render(errorFile);
+  user.confirmed = true;
+  user.confirmationToken = undefined;
+  user.confirmExpires = undefined;
+  await user.save({ validateBeforeSave: false });
+  next();
+});
+
 exports.login = catchAsync(async (req, res, next) => {
-  const user = await User.findOne({ email: req.body.email });
+  const user = await User.findOne({ email: req.body.email, confirmed: true });
   if (!user) return new next(new AppError(401, "Invalid Email/Password"));
   const compared = await bcrpyt.compare(req.body.password, user.password);
   if (!compared) return next(new AppError(401, "Invalid Email/Password"));
   const token = generateJWT(user._id, res);
   res.status(200).json({
     status: "success",
-    data: "logged in successfully!",
-    token,
+    message: "logged in successfully!",
   });
 });
 

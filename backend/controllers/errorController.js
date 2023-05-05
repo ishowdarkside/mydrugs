@@ -14,14 +14,33 @@ const errorMiddleware = (err, req, res, next) => {
       });
     }
     if (err.code === 11000) {
-      res.status(400).json({
+      return res.status(400).json({
         status: "fail",
         message: "Email already in use!",
       });
+    }
+    if (err.errors.passwordConfirm) {
+      return res.status(400).json({
+        status: "fail",
+        message: err.errors.passwordConfirm.message,
+      });
+    }
+    if (err.errors.name) {
+      return res.status(400).json({
+        status: "fail",
+        message: err.errors.name.message,
+      });
+    }
+    if (err.errors.email) {
+      return res.status(400).json({
+        status: "fail",
+        message: err.errors.email.message,
+      });
     } else {
-      res.status(500).json({
+      return res.status(500).json({
         status: "error",
         message: "Something went wrong!",
+        err,
       });
     }
   }

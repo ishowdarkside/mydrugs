@@ -18,3 +18,9 @@ exports.renderError = (req, res) => {
   const file = path.join(__dirname, "..", "views", "error");
   res.render(file);
 };
+
+exports.renderConfirm = (req, res) => {
+  const file = path.join(__dirname, "..", "views", "confirm");
+
+  res.render(file, { req });
+};
