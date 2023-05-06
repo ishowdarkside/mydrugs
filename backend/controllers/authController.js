@@ -64,7 +64,35 @@ exports.login = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.protect = (req, res, next) => {
+exports.protect = catchAsync(async (req, res, next) => {
   const token = req.cookies.jwt;
-  next();
-};
+
+  if (!token) return res.redirect("/login");
+  jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
+    if (err) {
+      return res.redirect("/login");
+    } else {
+      const user = await User.findById(decoded.id);
+      if (!user) return res.redirect("/login");
+      if (
+        user.passwordChangedAt &&
+        decoded.iat * 1000 < user.passwordChangedAt.getTime()
+      )
+        return res.redirect("/login");
+      req.user = user;
+      next();
+    }
+  });
+});
+
+exports.protectProcess = catchAsync(async (req, res, next) => {
+  const token = req.cookies.jwt;
+  if (!token) return next();
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return next();
+    } else {
+      return res.redirect("/main");
+    }
+  });
+});

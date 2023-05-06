@@ -7,7 +7,7 @@ class View extends alertWindow {
       e.preventDefault();
       const formInputs = new FormData(this.#form);
       const data = await handler(formInputs);
-      console.log(data);
+
       if (data.status !== "success") {
         return this.handleError(data.message);
       } else window.location.href = "/main";

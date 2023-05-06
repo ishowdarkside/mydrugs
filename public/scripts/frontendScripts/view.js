@@ -31,7 +31,10 @@ class View {
       .querySelector(".hero__section .btn")
       .addEventListener("click", function (e) {
         e.preventDefault();
-        document.querySelector(".section__about").scrollIntoView();
+        const aboutSection = document.querySelector(".section__about");
+        const productSection = document.querySelector(".section__products");
+        if (aboutSection) aboutSection.scrollIntoView();
+        else productSection.scrollIntoView();
       });
   }
 

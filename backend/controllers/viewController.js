@@ -24,3 +24,8 @@ exports.renderConfirm = (req, res) => {
 
   res.render(file, { req });
 };
+
+exports.renderMain = (req, res) => {
+  const file = path.join(__dirname, "..", "views", "main");
+  res.render(file, { user: req.user });
+};

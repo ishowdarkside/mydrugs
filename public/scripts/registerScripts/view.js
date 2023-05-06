@@ -7,7 +7,7 @@ class View extends alertWindow {
       e.preventDefault();
       const formData = new FormData(this.#form);
       const data = await handler(formData);
-      console.log(data);
+
       if (data.status !== "success") return this.handleError(data.message);
       else if (data.status === "success") {
         this.handleSuccess(data.message);
