@@ -1,6 +1,8 @@
 const path = require("path");
 const catchAsync = require("../utilities/catchAsync");
 const AppError = require("../utilities/AppError");
+const sharp = require("sharp");
+
 const ProductModel = require(path.join(
   __dirname,
   "..",
@@ -17,6 +19,10 @@ exports.getAllProducts = catchAsync(async (req, res) => {
 });
 
 exports.createProduct = catchAsync(async (req, res, next) => {
+  if (!req.file || !req.file.mimetype.startsWith("image")) {
+    return next(new AppError(400, "Please provide valid image"));
+  }
+
   const product = await ProductModel.create({
     productName: req.body.productName,
     productSub: req.body.productSub,
@@ -25,8 +31,13 @@ exports.createProduct = catchAsync(async (req, res, next) => {
     shippingDate: req.body.shippingDate,
     category: req.body.category,
     shippingLocation: req.body.shippingLocation,
+    productImage: `/imgs/${req.file.originalname}`,
   });
 
+  await sharp(req.file.buffer)
+    .toFormat("jpeg")
+    .jpeg({ quality: 90 })
+    .toFile(`public/imgs/${req.file.originalname}`);
   return res.status(200).json({
     status: "success",
     message: "Product created sucessfully!",
@@ -67,5 +78,14 @@ exports.deleteProduct = catchAsync(async (req, res, next) => {
 
   res.status(204).json({
     status: "success",
+  });
+});
+
+exports.getSingleProuct = catchAsync(async (req, res, next) => {
+  const product = await ProductModel.findById(req.params.productId);
+  if (!product) return next(new AppError("Product not found"));
+  res.status(200).json({
+    status: "success",
+    data: product,
   });
 });

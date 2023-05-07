@@ -1,0 +1,54 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title MyDrugs | Add Product
+  script(src='/scripts/frontendScripts/controller.js' type='module' defer='')
+  link(rel='icon' type='image/x-icon' href='./public/favicon.svg')
+  link(rel='stylesheet' href='/style.css')
+nav.navbar(class='navbar--independent')
+  .container
+    h2.heading-primary MyDrugs
+    ul
+      li
+        a(href='#') Products
+      li
+        a(href='#') FAQ
+      li
+        a(href='#') About us
+      li
+        a(href='/me')= user.name.split(' ')[0]
+section.section__adminInterface
+    .container 
+        h2.heading-primary Add Product
+        .form-wrapper(class='mt-big')
+            form
+                div
+                    label(for='productName') Product Name
+                    input(type='text' id='productName' name='productName')
+                div 
+                  label(for='productSub') Product subtitle
+                  input(type='text' id='productSub' name='productSub')
+                div 
+                  label(for='description') Description
+                  input(type='text' id='description' name='description')
+                div
+                  label(for='price') Price 
+                  input(type='text' id='price' name='price')
+                div
+                  label(for='category') Category
+                  select(name='category' id='category')
+                    option(value='sedatives') Sedatives
+                    option(value='stimulants') Stimulants
+                    option(value='hallucinogenics') Hallucinogenics
+                div 
+                  label(for='shippingLocation') Shipping Location
+                  select(name='shippingLocation' id='shippingLocation')
+                    option(value='germany') Germany
+                    option(value='columbia') Columbia
+                    option(value='austria') Austria
+                div
+                  select(name='shippingDate' id='shippingDate')
+                    option(value='same day') Same day
+                    option(value='next day') Next day

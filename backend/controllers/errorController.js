@@ -37,6 +37,12 @@ const errorMiddleware = (err, req, res, next) => {
         status: "fail",
         message: err.errors.email.message,
       });
+    }
+    if (err.name === "CastError") {
+      return res.status(404).json({
+        status: "fail",
+        message: `${err.stringValue} not found!`,
+      });
     } else {
       return res.status(500).json({
         status: "error",

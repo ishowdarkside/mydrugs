@@ -532,3 +532,32 @@ body {
   @media only screen and (max-width: 23.75em) {
     #errorLink {
       font-size: 4rem; } }
+
+.navbar--independent {
+  display: flex !important; }
+
+.section__adminInterface {
+  padding: 10rem 0; }
+  .section__adminInterface .operations-wrapper {
+    display: flex;
+    align-items: stretch;
+    height: 20rem;
+    justify-content: space-between;
+    gap: 2rem; }
+    .section__adminInterface .operations-wrapper > * {
+      flex-grow: 1;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      border-radius: 1rem;
+      background-color: #ffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem; }
+    .section__adminInterface .operations-wrapper img {
+      width: 8rem; }
+    .section__adminInterface .operations-wrapper a {
+      text-decoration: none;
+      color: #313131;
+      font-size: 2rem;
+      font-weight: 600; }

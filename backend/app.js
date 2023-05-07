@@ -9,6 +9,7 @@ const cookieParser = require("cookie-parser");
 const viewController = require("./controllers/viewController");
 const User = require("./models/userModel");
 const ProductRouter = require("./routes/productsRouter");
+
 dotenv.config({ path: "./config.env" });
 const app = express();
 

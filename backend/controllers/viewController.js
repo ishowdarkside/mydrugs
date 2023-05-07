@@ -29,3 +29,13 @@ exports.renderMain = (req, res) => {
   const file = path.join(__dirname, "..", "views", "main");
   res.render(file, { user: req.user });
 };
+
+exports.renderAdminInterface = (req, res) => {
+  const file = path.join(__dirname, "..", "views", "adminInterface");
+  res.render(file, { user: req.user });
+};
+
+exports.renderAddProduct = (req, res) => {
+  const file = path.join(__dirname, "..", "views", "adminAddProduct");
+  res.render(file, { user: req.user });
+};

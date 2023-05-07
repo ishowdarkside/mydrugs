@@ -10,9 +10,10 @@ const ProductSchema = new mongoose.Schema({
     type: String,
     required: [true, "please provide product subtitle"],
   },
-  image: {
+  productImage: {
     type: String,
-    //required: [true, "please provide product image"],
+    required: [true, "please provide product image"],
+    unique: [true, "image must be unique"],
   },
   description: {
     type: String,
@@ -27,10 +28,11 @@ const ProductSchema = new mongoose.Schema({
     type: Number,
     default: 4.7,
   },
-  orders: {
+  orderCount: {
     type: Number,
     default: 0,
   },
+  orders: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   shippingDate: {
     type: "String",
     required: [true, "please provide shipping date"],

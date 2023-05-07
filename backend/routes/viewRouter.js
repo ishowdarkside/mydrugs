@@ -16,4 +16,17 @@ router.get(
   viewController.renderConfirm
 );
 router.get("/main", authController.protect, viewController.renderMain);
+router.get(
+  "/admin",
+  authController.protect,
+  authController.protectAdmin,
+  viewController.renderAdminInterface
+);
+
+router.get(
+  "/admin/addProduct",
+  authController.protect,
+  authController.protectAdmin,
+  viewController.renderAddProduct
+);
 module.exports = router;
