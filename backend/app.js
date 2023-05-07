@@ -8,6 +8,7 @@ const ErrorMiddleware = require("./controllers/errorController");
 const cookieParser = require("cookie-parser");
 const viewController = require("./controllers/viewController");
 const User = require("./models/userModel");
+const ProductRouter = require("./routes/productsRouter");
 dotenv.config({ path: "./config.env" });
 const app = express();
 
@@ -28,6 +29,7 @@ app.use("/", ViewRouter);
 
 //Handling Api Calls
 app.use("/api/users", apiAuthRouter);
+app.use("/api/products", ProductRouter);
 
 //Error Handling Middleware
 

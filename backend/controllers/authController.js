@@ -58,6 +58,7 @@ exports.login = catchAsync(async (req, res, next) => {
   const compared = await bcrpyt.compare(req.body.password, user.password);
   if (!compared) return next(new AppError(401, "Invalid Email/Password"));
   const token = generateJWT(user._id, res);
+  req.headers.Authorization = `Bearer ${token}`;
   res.status(200).json({
     status: "success",
     message: "logged in successfully!",
@@ -96,3 +97,12 @@ exports.protectProcess = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+exports.protectAdmin = (req, res, next) => {
+  if (req.user.role !== "admin") {
+    const file = path.join(__dirname, "..", "views", "error");
+    return res.render(file);
+  }
+
+  next();
+};

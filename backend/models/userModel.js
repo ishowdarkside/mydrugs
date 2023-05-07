@@ -46,6 +46,11 @@ const UserSchema = new mongoose.Schema({
       message: "Passwords are not matching!",
     },
   },
+  role: {
+    type: String,
+    default: "customer",
+    enum: ["admin"],
+  },
   confirmed: {
     type: Boolean,
     default: false,
