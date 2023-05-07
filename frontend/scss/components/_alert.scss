@@ -1,5 +1,5 @@
 #alertWindow {
-  position: absolute;
+  position: fixed;
   min-width: 30rem;
   height: 6rem;
   padding: 1rem;
@@ -11,6 +11,7 @@
   justify-content: center;
   left: 50%;
   font-family: $mont;
+  z-index: 999999;
 
   color: #ffff;
   transform: translateX(-50%) translateY(-6rem);

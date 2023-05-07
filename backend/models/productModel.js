@@ -20,7 +20,7 @@ const ProductSchema = new mongoose.Schema({
     required: [true, "please provide product description"],
   },
   price: {
-    type: "String",
+    type: Number,
     required: [true, "please provide product price"],
   },
   ratings: [{ type: mongoose.Schema.Types.ObjectId, ref: "reviews" }],

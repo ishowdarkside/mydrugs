@@ -4,12 +4,13 @@ head
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title MyDrugs | Add Product
-  script(src='/scripts/frontendScripts/controller.js' type='module' defer='')
+  script(src='/scripts/addProductScripts/controller.js' type='module' defer='')
+  script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
   link(rel='icon' type='image/x-icon' href='./public/favicon.svg')
   link(rel='stylesheet' href='/style.css')
 nav.navbar(class='navbar--independent')
   .container
-    h2.heading-primary MyDrugs
+    a(href='/main').heading-primary MyDrugs
     ul
       li
         a(href='#') Products
@@ -19,11 +20,11 @@ nav.navbar(class='navbar--independent')
         a(href='#') About us
       li
         a(href='/me')= user.name.split(' ')[0]
-section.section__adminInterface
+section.section__adminAddProduct
     .container 
         h2.heading-primary Add Product
         .form-wrapper(class='mt-big')
-            form
+            form#addProductForm
                 div
                     label(for='productName') Product Name
                     input(type='text' id='productName' name='productName')
@@ -32,7 +33,7 @@ section.section__adminInterface
                   input(type='text' id='productSub' name='productSub')
                 div 
                   label(for='description') Description
-                  input(type='text' id='description' name='description')
+                  textarea(rows="4" cols="50" id='description' name='description' )
                 div
                   label(for='price') Price 
                   input(type='text' id='price' name='price')
@@ -49,6 +50,12 @@ section.section__adminInterface
                     option(value='columbia') Columbia
                     option(value='austria') Austria
                 div
+                  label(for='shippingDate' id='shippingDate') Shipping Date
                   select(name='shippingDate' id='shippingDate')
                     option(value='same day') Same day
                     option(value='next day') Next day
+                div
+                  label(for="productImage" id='productImageLabel') Choose Product Image
+                  input(type='file' id='productImage' name="productImage")
+                button#publishProduct(class='btn btn--black') Publish
+#alertWindow

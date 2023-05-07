@@ -1,4 +1,5 @@
 const path = require("path");
+const ProductModel = require("../models/productModel");
 exports.renderIndex = (req, res) => {
   const file = path.join(__dirname, "..", "views", "index");
   res.render(file);
@@ -25,9 +26,10 @@ exports.renderConfirm = (req, res) => {
   res.render(file, { req });
 };
 
-exports.renderMain = (req, res) => {
+exports.renderMain = async (req, res) => {
+  const products = await ProductModel.find().limit(9);
   const file = path.join(__dirname, "..", "views", "main");
-  res.render(file, { user: req.user });
+  res.render(file, { user: req.user, products });
 };
 
 exports.renderAdminInterface = (req, res) => {
