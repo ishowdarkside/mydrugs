@@ -43,6 +43,13 @@ const errorMiddleware = (err, req, res, next) => {
         status: "fail",
         message: `${err.stringValue} not found!`,
       });
+    }
+
+    if (err.name === "ValidationError") {
+      return res.status(400).json({
+        status: "fail",
+        message: "Please provide all fields!",
+      });
     } else {
       return res.status(500).json({
         status: "error",

@@ -19,7 +19,6 @@ exports.getAllProducts = catchAsync(async (req, res) => {
 });
 
 exports.createProduct = catchAsync(async (req, res, next) => {
-  console.log(req.file);
   if (!req.file || !req.file.mimetype.startsWith("image")) {
     return next(new AppError(400, "Please provide valid image"));
   }

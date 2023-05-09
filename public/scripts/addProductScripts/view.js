@@ -7,9 +7,11 @@ class View extends alertWindow {
       e.preventDefault();
       const formInputs = new FormData(this.#form);
 
-      const data = await handler(formInputs);
-      if (data.data.status === "success") {
+      try {
+        const data = await handler(formInputs);
         this.handleSuccess(data.data.message);
+      } catch (err) {
+        this.handleError(err.message);
       }
     });
   }
