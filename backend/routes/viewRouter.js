@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const viewController = require("../controllers/viewController");
 const authController = require("../controllers/authController");
+const productController = require("../controllers/productController");
 
 router.get("/", authController.protectProcess, viewController.renderIndex);
 router.get(
@@ -28,5 +29,21 @@ router.get(
   authController.protect,
   authController.protectAdmin,
   viewController.renderAddProduct
+);
+
+router.get(
+  "/admin/editProducts",
+  authController.protect,
+  authController.protectAdmin,
+  productController.renderAllProducts,
+  viewController.editProductsPanel
+);
+
+router.get(
+  "/admin/editProduct/:productId",
+  authController.protect,
+  authController.protectAdmin,
+  productController.checkProduct,
+  viewController.renderEditProduct
 );
 module.exports = router;

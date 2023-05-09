@@ -41,3 +41,13 @@ exports.renderAddProduct = (req, res) => {
   const file = path.join(__dirname, "..", "views", "adminAddProduct");
   res.render(file, { user: req.user });
 };
+
+exports.renderEditProduct = (req, res) => {
+  const file = path.join(__dirname, "..", "views", "editProduct");
+  res.render(file, { user: req.user, product: req.product });
+};
+
+exports.editProductsPanel = (req, res) => {
+  const file = path.join(__dirname, "..", "views", "editProductsPanel");
+  res.render(file, { user: req.user, products: req.products });
+};

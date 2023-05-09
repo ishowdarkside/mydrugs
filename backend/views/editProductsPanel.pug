@@ -1,0 +1,35 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title MyDrugs | Add Product
+  script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+  link(rel='icon' type='image/x-icon' href='./public/favicon.svg')
+  link(rel='stylesheet' href='/style.css')
+nav.navbar(class='navbar--independent')
+  .container
+    a(href='/main').heading-primary MyDrugs
+    ul
+      li
+        a(href='#') Products
+      li
+        a(href='#') FAQ
+      li
+        a(href='#') About us
+      li
+        a(href='/me')= user.name.split(' ')[0]
+
+.section__products__wrapper(class='editProductsPanel')
+  for product in products 
+    a.section__products__product-wrapper(href=`/admin/editProduct/${product._id}`)
+      img(src=`${product.productImage}`)
+      .section__products__product-wrapper__rating-wrapper
+        img(src='/imgs/star-fill.svg')
+        span= product.ratingAvg
+      .section__products__product-wrapper__desc
+        span.title= product.productName
+        span.desc= product.productSub
+            br
+        span.price= `$${product.price}`
+

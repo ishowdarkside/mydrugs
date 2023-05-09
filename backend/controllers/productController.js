@@ -55,6 +55,13 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
   Object.entries(req.body).forEach((el) => {
     product[el[0]] = el[1];
   });
+  if (req.file) {
+    await sharp(req.file.buffer)
+      .toFormat("jpeg")
+      .jpeg({ quality: 90 })
+      .toFile(`public/imgs/${req.file.originalname}`);
+    product.productImage = `/imgs/${req.file.originalname}`;
+  }
 
   await product.save({ validateBeforeSave: true });
 
@@ -88,4 +95,22 @@ exports.getSingleProuct = catchAsync(async (req, res, next) => {
     status: "success",
     data: product,
   });
+});
+
+exports.checkProduct = async (req, res, next) => {
+  try {
+    const product = await ProductModel.findOne({ _id: req.params.productId });
+
+    req.product = product;
+    next();
+  } catch (err) {
+    const file = path.join(__dirname, "..", "views", "error");
+    return res.render(file);
+  }
+};
+
+exports.renderAllProducts = catchAsync(async (req, res, next) => {
+  const products = await ProductModel.find();
+  req.products = products;
+  next();
 });

@@ -19,7 +19,7 @@ Router.post(
 //Update Product
 Router.use(authController.protect, authController.protectAdmin);
 Router.route("/:productId")
-  .patch(productController.updateProduct)
+  .patch(upload.single("productImage"), productController.updateProduct)
   .delete(productController.deleteProduct)
   .get(productController.getSingleProuct);
 
