@@ -9,7 +9,7 @@ head
   link(rel='stylesheet' href='/style.css')
 nav.navbar
   .container
-    h2.heading-primary MyDrugs
+    a.heading-primary(href='/') MyDrugs
     ul
       li
         a(href='#') Products
@@ -99,10 +99,23 @@ section.section__products
             span.price= `$${product.price}`
             button#buyDrug BUY
     .pagination-wrapper
-      button.page 1
-      button.page 2
-      button.page 3
-      button.page 4
+      if (page)
+        if (+page - 1 > 0)
+          if (products.length > 0)
+            a.page(href=`/main?page=${+page - 1}`)= +page - 1
+            a.page(class='page--active' href=`/main?page=${+page}`)= page
+            a.page(href=`/main?page=${+page + 1}`)= +page + 1
+          else 
+            a.page(href=`/main?page=${+page - 1}`)= +page - 1
+            a.page(class='page--active' href=`/main?page=${+page}`)= page
+        else
+          a.page(class='page--active' href=`/main?page=${+page}`)= +page
+          a.page(href=`/main?page=${+page + 1}`)= +page + 1
+          a.page(href=`/main?page=${+page + 2}`)= +page + 2
+      else 
+        a.page(class='page--active' href=`/main?page=1`) 1
+        a.page(href=`/main?page=2`) 2
+        a.page(href=`/main?page=3`) 3
 footer.footer
   .container
     ul

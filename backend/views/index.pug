@@ -105,155 +105,37 @@ section.section__products
       li Your Latest Purchases
       li Recommended By Others
     .section__products__wrapper
-      .section__products__product-wrapper
-        img(src='/imgs/painkiller.jpg')
-        .section__products__product-wrapper__rating-wrapper
-          img(src='/imgs/star-fill.svg')
-          span 4.9
-        .section__products__product-wrapper__desc
-          span.title Pink MDMA
-          span.desc
-            | Lorem ipsum dolor sit amet! 
-            a(href='#') Read More
-          span.price 0.0071BTC
-          button#buyDrug BUY
-      .section__products__product-wrapper
-        img(src='/imgs/crack.jpg')
-        .section__products__product-wrapper__rating-wrapper
-          img(src='/imgs/star-fill.svg')
-          span 3.7
-        .section__products__product-wrapper__desc
-          span.title Crack
-          span.desc
-            | Lorem ipsum dolor sit amet! 
-            a(href='#') Read More
-          span.price 0.0211BTC
-          button#buyDrug BUY
-      .section__products__product-wrapper
-        img(src='/imgs/crystal-meth.jpg')
-        .section__products__product-wrapper__rating-wrapper
-          img(src='/imgs/star-fill.svg')
-          span 5.0
-        .section__products__product-wrapper__desc
-          span.title Cyrstal Meth
-          span.desc
-            | Lorem ipsum dolor sit amet! 
-            a(href='#') Read More
-          span.price 0.0091BTC
-          button#buyDrug BUY
-      .section__products__product-wrapper
-        img(src='/imgs/fancy-mdma.jpg')
-        .section__products__product-wrapper__rating-wrapper
-          img(src='/imgs/star-fill.svg')
-          span 2.1
-        .section__products__product-wrapper__desc
-          span.title Fancy MDMA
-          span.desc
-            | Lorem ipsum dolor sit amet! 
-            a(href='#') Read More
-          span.price 0.0021BTC
-          button#buyDrug BUY
-      .section__products__product-wrapper
-        img(src='/imgs/green mdma.jpg')
-        .section__products__product-wrapper__rating-wrapper
-          img(src='/imgs/star-fill.svg')
-          span 3.8
-        .section__products__product-wrapper__desc
-          span.title Green MDMA
-          span.desc
-            | Lorem ipsum dolor sit amet! 
-            a(href='#') Read More
-          span.price 0.0041BTC
-          button#buyDrug BUY
-      .section__products__product-wrapper
-        img(src='/imgs/green-2.jpg')
-        .section__products__product-wrapper__rating-wrapper
-          img(src='/imgs/star-fill.svg')
-          span 4.4
-        .section__products__product-wrapper__desc
-          span.title Weedy MDMA
-          span.desc
-            | Lorem ipsum dolor sit amet! 
-            a(href='#') Read More
-          span.price 0.00721BTC
-          button#buyDrug BUY
-      .section__products__product-wrapper
-        img(src='/imgs/painkiller.jpg')
-        .section__products__product-wrapper__rating-wrapper
-          img(src='/imgs/star-fill.svg')
-          span 4.9
-        .section__products__product-wrapper__desc
-          span.title Pink MDMA
-          span.desc
-            | Lorem ipsum dolor sit amet! 
-            a(href='#') Read More
-          span.price 0.0071BTC
-          button#buyDrug BUY
-      .section__products__product-wrapper
-        img(src='/imgs/green-pills.jpg')
-        .section__products__product-wrapper__rating-wrapper
-          img(src='/imgs/star-fill.svg')
-          span 1.5
-        .section__products__product-wrapper__desc
-          span.title Green Pill
-          span.desc
-            | Lorem ipsum dolor sit amet! 
-            a(href='#') Read More
-          span.price 0.0015BTC
-          button#buyDrug BUY
-      .section__products__product-wrapper
-        img(src='/imgs/morphine.jpg')
-        .section__products__product-wrapper__rating-wrapper
-          img(src='/imgs/star-fill.svg')
-          span 4.9
-        .section__products__product-wrapper__desc
-          span.title Morphine
-          span.desc
-            | Lorem ipsum dolor sit amet! 
-            a(href='#') Read More
-          span.price 0.0071BTC
-          button#buyDrug BUY
-      .section__products__product-wrapper
-        img(src='/imgs/purple-mdma.jpg')
-        .section__products__product-wrapper__rating-wrapper
-          img(src='/imgs/star-fill.svg')
-          span 5.0
-        .section__products__product-wrapper__desc
-          span.title Purple MDMA
-          span.desc
-            | Lorem ipsum dolor sit amet! 
-            a(href='#') Read More
-          span.price 0.0121BTC
-          button#buyDrug BUY
-      .section__products__product-wrapper
-        img(src='/imgs/random-pill.jpg')
-        .section__products__product-wrapper__rating-wrapper
-          img(src='/imgs/star-fill.svg')
-          span 4.9
-        .section__products__product-wrapper__desc
-          span.title Random Pill
-          span.desc
-            | Lorem ipsum dolor sit amet! 
-            a(href='#') Read More
-          span.price 0.0071BTC
-          button#buyDrug BUY
-      .section__products__product-wrapper
-        img(src='/imgs/red-mdma.jpg')
-        .section__products__product-wrapper__rating-wrapper
-          img(src='/imgs/star-fill.svg')
-          span 4.9
-        .section__products__product-wrapper__desc
-          span.title Red MDMA
-          span.desc
-            | Lorem ipsum dolor sit amet! 
-            a(href='#') Read More
-          span.price 0.0071BTC
-          button#buyDrug BUY
+      for product in products 
+        .section__products__product-wrapper(data-identifier=`${product._id}`)
+          img(src=`${product.productImage}`)
+          .section__products__product-wrapper__rating-wrapper
+            img(src='/imgs/star-fill.svg')
+            span= product.ratingAvg
+          .section__products__product-wrapper__desc
+            span.title= product.productName
+            span.desc= product.productSub
+              br
+              a(href='#') Read More
+            span.price= `$${product.price}`
+            button#buyDrug BUY
     .pagination-wrapper
-      button.page 1
-      button.page 2
-      button.page 3
-      button.page 4
+      if (page)
+        if (+page - 1 > 0)
+          if (products.length > 0)
+            a.page(href=`/?page=${+page - 1}`)= +page - 1
+            a.page(class='page--active' href=`/?page=${+page}`)= page
+            a.page(href=`/?page=${+page + 1}`)= +page + 1
+          else 
+            a.page(href=`/?page=${+page - 1}`)= +page - 1
+            a.page(class='page--active' href=`/?page=${+page}`)= page
+        else
+          a.page(class='page--active' href=`/?page=${+page}`)= +page
+          a.page(href=`/?page=${+page + 1}`)= +page + 1
+          a.page(href=`/?page=${+page + 2}`)= +page + 2
+      else 
+        a.page(class='page--active' href=`/?page=1`) 1
+        a.page(href=`/?page=2`) 2
+        a.page(href=`/?page=3`) 3
 footer.footer
   .container
     ul

@@ -114,3 +114,10 @@ exports.renderAllProducts = catchAsync(async (req, res, next) => {
   req.products = products;
   next();
 });
+
+exports.getPaginatedProducts = catchAsync(async (req, res, next) => {
+  const skipValue = req.query.page ? (+req.query.page - 1) * 12 : 0;
+  const products = await ProductModel.find().skip(skipValue).limit(12);
+  req.products = products;
+  next();
+});

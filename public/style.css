@@ -40,6 +40,18 @@
 .alignCenter {
   text-align: center; }
 
+.page--active {
+  background-color: #fff !important;
+  color: #313131 !important;
+  border: 1px solid #313131 !important; }
+
+.page {
+  padding: 1rem 2rem;
+  text-decoration: none;
+  background-color: #313131;
+  font-size: 1.7rem;
+  color: #fff; }
+
 *,
 *::before,
 *::after {

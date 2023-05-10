@@ -4,7 +4,12 @@ const viewController = require("../controllers/viewController");
 const authController = require("../controllers/authController");
 const productController = require("../controllers/productController");
 
-router.get("/", authController.protectProcess, viewController.renderIndex);
+router.get(
+  "/",
+  authController.protectProcess,
+  productController.getPaginatedProducts,
+  viewController.renderIndex
+);
 router.get(
   "/register",
   authController.protectProcess,
@@ -16,7 +21,12 @@ router.get(
   authController.confirm,
   viewController.renderConfirm
 );
-router.get("/main", authController.protect, viewController.renderMain);
+router.get(
+  "/main",
+  authController.protect,
+  productController.getPaginatedProducts,
+  viewController.renderMain
+);
 router.get(
   "/admin",
   authController.protect,
