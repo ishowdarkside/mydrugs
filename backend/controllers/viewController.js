@@ -51,3 +51,8 @@ exports.editProductsPanel = (req, res) => {
   const file = path.join(__dirname, "..", "views", "editProductsPanel");
   res.render(file, { user: req.user, products: req.products });
 };
+
+exports.deleteProductsPanel = (req, res) => {
+  const file = path.join(__dirname, "..", "views", "deleteProductsPanel");
+  res.render(file, { user: req.user, products: req.products });
+};

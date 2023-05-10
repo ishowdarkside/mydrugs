@@ -1,4 +1,4 @@
 node_modules
-/templates
-/imgs
-/public/imgs
+templates
+public/imgs
+imgs

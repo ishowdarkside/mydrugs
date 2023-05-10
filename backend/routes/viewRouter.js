@@ -46,4 +46,13 @@ router.get(
   productController.checkProduct,
   viewController.renderEditProduct
 );
+
+router.get(
+  "/admin/deleteProducts",
+  authController.protect,
+  authController.protectAdmin,
+  productController.renderAllProducts,
+  viewController.deleteProductsPanel
+);
+
 module.exports = router;

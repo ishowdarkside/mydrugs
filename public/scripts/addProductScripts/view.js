@@ -10,6 +10,9 @@ class View extends alertWindow {
       try {
         const data = await handler(formInputs);
         this.handleSuccess(data.data.message);
+        setTimeout(() => {
+          location.reload(true);
+        }, 2000);
       } catch (err) {
         this.handleError(err.message);
       }
