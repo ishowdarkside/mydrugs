@@ -121,3 +121,9 @@ exports.getPaginatedProducts = catchAsync(async (req, res, next) => {
   req.products = products;
   next();
 });
+
+exports.renderSpecificProduct = catchAsync(async (req, res, next) => {
+  const product = await ProductModel.findById(req.params.productId);
+  req.product = product;
+  next();
+});

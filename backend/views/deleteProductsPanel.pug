@@ -19,6 +19,9 @@ nav.navbar(class='navbar--independent')
         a(href='#') About us
       li
         a(href='/me')= user.name.split(' ')[0]
+      if (user.role === 'admin')
+        li
+          a(href='/admin') Manage Products
 h2.heading-primary(class='mt-huge alignCenter') Choose product you want to delete
 .section__products__wrapper(class='deleteProductsPanel')
   for product in products 

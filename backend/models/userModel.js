@@ -62,6 +62,9 @@ const UserSchema = new mongoose.Schema({
   confirmationToken: {
     type: String,
   },
+  cart: {
+    type: [String],
+  },
 });
 
 UserSchema.pre("save", async function (next) {

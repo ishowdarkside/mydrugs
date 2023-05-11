@@ -1,21 +1,4 @@
 class View {
-  handleFilterBar() {
-    const bar = document.querySelector(".section__products__filter-bar");
-
-    document.querySelector("#closeBar").addEventListener("click", function (e) {
-      e.preventDefault();
-      bar.classList.add("hideBar");
-      bar.classList.remove("showBar");
-    });
-
-    //open bar
-    document.querySelector("#openBar").addEventListener("click", function (e) {
-      e.preventDefault();
-      bar.classList.remove("hideBar");
-      bar.classList.add("showBar");
-    });
-  }
-
   handleViewFilters() {
     const listItems = document.querySelectorAll(".container-filters li");
     listItems.forEach((el) => {

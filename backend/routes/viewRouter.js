@@ -65,4 +65,11 @@ router.get(
   viewController.deleteProductsPanel
 );
 
+router.get(
+  "/product/:productId",
+  authController.protect,
+  productController.renderSpecificProduct,
+  viewController.renderSpecificProduct
+);
+
 module.exports = router;

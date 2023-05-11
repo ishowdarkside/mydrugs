@@ -1,0 +1,49 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title MyDrugs
+  script(src='/scripts/frontendScripts/controller.js' type='module' defer='')
+  link(rel='icon' type='image/x-icon' href='./public/favicon.svg')
+  link(rel='stylesheet' href='/style.css')
+nav.navbar(class='navbar--independent')
+  .container
+    a.heading-primary(href='/') MyDrugs
+    ul
+      li
+        a(href='#') Products
+      li
+        a(href='#') FAQ
+      li
+        a(href='#') About us
+      li
+        a(href='/me')= user.name.split(' ')[0]
+      if (user.role === 'admin')
+        li
+          a(href='/admin') Manage Products
+section.section__specificProduct
+    .container
+        .left-wrapper 
+            img(src=`${product.productImage}`)
+        .right-wrapper 
+            h2.heading-primary= product.productName 
+            span.product__sub= product.productSub
+            span.product__desc= product.description 
+            span.product__rating= `Rating: ${product.ratingAvg}`
+            span.product__price= `$${product.price}`
+            button.btn(class='btn--black') BUY
+footer.footer
+  .container
+    ul
+      li
+        a(href='#') About us
+      li
+        a(href='#') Your Profile
+      li
+        a(href='#') Previous Orders
+      li
+        a(href='#') Settings
+      li
+        a(href='#') Wishlist
+    h2 MyDrugs

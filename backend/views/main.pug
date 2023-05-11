@@ -19,56 +19,10 @@ nav.navbar(class='navbar--independent')
         a(href='#') About us
       li
         a(href='/me')= user.name.split(' ')[0]
+      if (user.role === 'admin')
+        li
+          a(href='/admin') Manage Products
 section.section__products(class='section__products__main')
-  .section__products__filter-bar
-    button#closeBar
-      img(src='/imgs/x.svg')
-    h2.heading-primary Filter Products
-    form
-      h2.heading-primary Category
-      .input-wrapper
-        input(type='checkbox' value='sedatives' name='sedatives')
-        label(for='sedatives') Sedatives
-      .input-wrapper
-        input(type='checkbox' value='stimulants' name='stimulants')
-        label(for='sedatives') Stimulants
-      .input-wrapper
-        input(type='checkbox' value='hg' name='hg')
-        label(for='sedatives') Hallucinogenics
-      h2.heading-primary Price
-      .input-wrapper
-        input(type='checkbox' value='htl' name='htl')
-        label(for='htl') High to Low
-      .input-wrapper
-        input(type='checkbox' value='lth' name='lth')
-        label(for='lth') Low to High
-      h2.heading-primary Shipping Location
-      .input-wrapper
-        input(type='checkbox' value='columbia' name='columbia')
-        label(for='columbia') Columbia
-      .input-wrapper
-        input(type='checkbox' value='germany' name='germany')
-        label(for='germany') Germany
-      .input-wrapper
-        input(type='checkbox' value='austria' name='austria')
-        label(for='austria') Austria
-      h2.heading-primary Rating
-      .input-wrapper
-        input(type='checkbox' value='highRating' name='highRating')
-        label(for='highRating') highest
-      .input-wrapper
-        input(type='checkbox' value='lowRating' name='lowRating')
-        label(for='lowRating') Lowest
-      h2.heading-primary Shipping
-      .input-wrapper
-        input(type='checkbox' value='shipToday' name='shipToday')
-        label(for='shipToday') Same Day
-      .input-wrapper
-        input(type='checkbox' value='shipTomorrow' name='shipTomorrow')
-        label(for='shipTomorrow') Next Day
-      button#submitFilter Refresh Results
-  button#openBar
-    img(src='/imgs/list.svg' alt='menu img')
   .container.container--1
     h2.heading-primary Explore Products
     span.section__products__filler Here at MyDrugs, we value quality over quantity
@@ -80,7 +34,7 @@ section.section__products(class='section__products__main')
       li Recommended By Others
     .section__products__wrapper
       for product in products 
-        .section__products__product-wrapper(data-identifier=`${product._id}`)
+        .section__products__product-wrapper(href=`/product/${product._id}`)
           img(src=`${product.productImage}`)
           .section__products__product-wrapper__rating-wrapper
             img(src='/imgs/star-fill.svg')
@@ -89,7 +43,7 @@ section.section__products(class='section__products__main')
             span.title= product.productName
             span.desc= product.productSub
               br
-              a(href='#') Read More
+              a(href=`/product/${product._id}`) Read More
             span.price= `$${product.price}`
             button#buyDrug BUY
     .pagination-wrapper
