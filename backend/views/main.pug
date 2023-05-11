@@ -7,7 +7,7 @@ head
   script(src='/scripts/frontendScripts/controller.js' type='module' defer='')
   link(rel='icon' type='image/x-icon' href='./public/favicon.svg')
   link(rel='stylesheet' href='/style.css')
-nav.navbar
+nav.navbar(class='navbar--independent')
   .container
     a.heading-primary(href='/') MyDrugs
     ul
@@ -19,13 +19,7 @@ nav.navbar
         a(href='#') About us
       li
         a(href='/me')= user.name.split(' ')[0]
-section.hero__section
-  .hero__section__overlay
-  .container
-    h1.hero__section__heading MyDrugs
-    span.hero__section__filler Experience relief. Find the right medication for you
-    button.btn.btn--white.mt-big Browse
-section.section__products
+section.section__products(class='section__products__main')
   .section__products__filter-bar
     button#closeBar
       img(src='/imgs/x.svg')

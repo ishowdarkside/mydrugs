@@ -1,4 +1,6 @@
 const path = require("path");
+const queryString = require("querystring");
+
 exports.renderIndex = (req, res) => {
   const file = path.join(__dirname, "..", "views", "index");
   res.render(file, { products: req.products, page: req.query.page });
@@ -30,7 +32,8 @@ exports.renderMain = async (req, res) => {
   res.render(file, {
     user: req.user,
     products: req.products,
-    page: req.query.page,
+    page: req.query.page?.length > 1 ? req.query.page.at(-1) : req.query.page,
+    currentUrl: req.url,
   });
 };
 
