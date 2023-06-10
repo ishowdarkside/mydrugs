@@ -31,7 +31,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     .update(buffer)
     .digest("hex");
   //REMOVE 3000 in production
-  const emailMessage = `To confirm your account visit: \n ${req.protocol}://${req.hostname}:3000/confirmAccount/${user.confirmationToken} \n If you don't confirm your account in next 10 minutes,your data will be lost!`;
+  const emailMessage = `To confirm your account visit: \n ${req.protocol}://${req.hostname}/confirmAccount/${user.confirmationToken} \n If you don't confirm your account in next 10 minutes,your data will be lost!`;
 
   await user.save({ validateBeforeSave: true });
   const message = await Emailer.sendConfirmation(user.email, emailMessage);
