@@ -2,13 +2,11 @@ const nodemailer = require("nodemailer");
 class Email {
   emailOptions() {
     const transporter = nodemailer.createTransport({
-      host: process.env.MAILTRAP_HOST,
-      service: process.env.MAILTRAP_HOST,
-      port: process.env.MAILTRAP_PORT,
-      secure: false,
+      service: "sendgrid",
+      //secure: false,
       auth: {
-        user: process.env.MAILTRAP_USERNAME,
-        pass: process.env.MAILTRAP_PASSWORD,
+        user: process.env.SENDGRID_USERNAME,
+        pass: process.env.SENDGRID_PASSWORD,
       },
     });
 
@@ -18,7 +16,7 @@ class Email {
   async sendConfirmation(receiver, message) {
     const transporter = this.emailOptions();
     await transporter.sendMail({
-      from: "MyDrugs <hello@mydrugs.io>",
+      from: process.env.EMAIL_FROM,
       to: receiver,
       subject: "Confirm Account",
       text: message,

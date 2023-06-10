@@ -1,0 +1,11 @@
+.decoration-line-hover{
+    position: absolute;
+    left:0;
+    bottom: 0;
+    width: 0%;
+    height: 1px;
+    background-color: $color-white;
+    transition: all .3s ease;
+    left:50%;
+    transform: translateX(-50%);
+}

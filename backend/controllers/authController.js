@@ -16,6 +16,8 @@ const generateJWT = function (id, res) {
 };
 
 exports.signup = catchAsync(async (req, res, next) => {
+  if (!User.checkFields(req.body))
+    return next(new AppError(400, "Please provide all fields!"));
   const user = new User({
     name: req.body.name,
     email: req.body.email,
@@ -28,7 +30,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     .createHash("sha256")
     .update(buffer)
     .digest("hex");
-  //REMOVE 3000 in deployment process
+  //REMOVE 3000 in production
   const emailMessage = `To confirm your account visit: \n ${req.protocol}://${req.hostname}:3000/confirmAccount/${user.confirmationToken} \n If you don't confirm your account in next 10 minutes,your data will be lost!`;
 
   await user.save({ validateBeforeSave: true });

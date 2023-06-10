@@ -49,7 +49,7 @@ const UserSchema = new mongoose.Schema({
   role: {
     type: String,
     default: "customer",
-    enum: ["admin"],
+    enum: ["admin", "customer"],
   },
   confirmed: {
     type: Boolean,
@@ -66,6 +66,12 @@ const UserSchema = new mongoose.Schema({
     type: [String],
   },
 });
+
+UserSchema.statics.checkFields = function (data) {
+  if (!data.name || !data.email || !data.password || !data.passwordConfirm) {
+    return false;
+  } else return true;
+};
 
 UserSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
