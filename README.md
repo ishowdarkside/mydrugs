@@ -19,3 +19,5 @@ email: admin@mydrugs.io
 password: stalker1
 
 to checkout admin panel - visit https://mydrugs-ajdin.onrender.com/admin or click manage products link in navbar
+
+Turning back on this project, I spot so many flaws in the code especially at error handling and i am happy to see the progress i've made throughout the projects
