@@ -3,10 +3,9 @@ Project Status
 This project is no longer being actively developed or maintained.
 
 Project Description
-[MyDrugs] was a project I started to build an e-commerce website using [PUG,node.js,express.js,mongodb]. However, I have decided to stop working on this project due to
-lack of interest, time constraints and other commitments
+[MyDrugs] was a project I started to build an e-commerce website using [PUG,node.js,express.js,mongodb]
 
-However, project has so many cool and interesting functionalities implemented so far,like:
+Project has so many cool and interesting functionalities implemented so far,like:
 - User registration, authorization and authentication
 - Admin Panel for: Creating,editing and Deleting Products
 - Dynamic Pagination
@@ -20,4 +19,3 @@ password: stalker1
 
 to checkout admin panel - visit https://mydrugs-ajdin.onrender.com/admin or click manage products link in navbar
 
-Turning back on this project, I spot so many flaws in the code especially at error handling and i am happy to see the progress i've made throughout the projects
